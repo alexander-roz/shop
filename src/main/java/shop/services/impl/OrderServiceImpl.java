@@ -52,7 +52,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderEntity> getOrderByID(int id) {
-        return orderRepository.findOrderEntityByOrderID(id);
+        return orderRepository.findOrderEntitiesByOrderID(id);
     }
 
 }

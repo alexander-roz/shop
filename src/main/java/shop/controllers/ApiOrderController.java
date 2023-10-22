@@ -1,16 +1,21 @@
 package shop.controllers;
 
 import shop.model.entities.OrderEntity;
+import shop.services.CountService;
 import shop.services.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ApiOrderController {
     private final OrderService orderService;
+    private final CountService countService;
 
-    public ApiOrderController(OrderService orderService) {
+    public ApiOrderController(OrderService orderService, CountService countService) {
         this.orderService = orderService;
+        this.countService = countService;
     }
     @PostMapping(value = "/orders/")
     public ResponseEntity<Integer> addOrder(@RequestBody OrderEntity order)
@@ -19,7 +24,7 @@ public class ApiOrderController {
     }
 
     @GetMapping("/orders/{id}")
-    public ResponseEntity<OrderEntity> getOrder(@PathVariable Integer id)
+    public ResponseEntity<List<OrderEntity>> getOrders(@PathVariable Integer id)
     {
         return ResponseEntity.ok(orderService.getOrderByID(id));
     }
@@ -32,5 +37,10 @@ public class ApiOrderController {
     @DeleteMapping("/orders/")
     public ResponseEntity<?> deleteAllOrders(){
         return ResponseEntity.ok(orderService.deleteAllOrders());
+    }
+
+    @GetMapping("/orders/")
+    public ResponseEntity<List<OrderEntity>> getOrdersMoreThenHundred(){
+        return ResponseEntity.ok(countService.getOrdersMoreThenHundred());
     }
 }
