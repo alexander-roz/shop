@@ -1,4 +1,4 @@
-package com.intellekta.shop.model.entities;
+package shop.model.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -16,6 +16,6 @@ public class ProductEntity {
     @Column(name = "product_name")
     private String name;
 
-    @Column(name = "product_year")
-    private int year;
+    @Column(name = "product_price")
+    private double price;
 }

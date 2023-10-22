@@ -1,9 +1,7 @@
-package com.intellekta.shop.model.entities;
+package shop.model.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Data
@@ -21,8 +19,4 @@ public class CustomerEntity {
     @Column(name = "customer_surname")
     private String surname;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (referencedColumnName = "order_id", name = "order_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private OrderEntity order;
 }

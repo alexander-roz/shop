@@ -1,4 +1,4 @@
-package com.intellekta.shop.model.entities;
+package shop.model.entities;
 
 public enum Status {
     CREATED,
