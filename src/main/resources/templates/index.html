@@ -1,21 +1,26 @@
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
-
+<html lang="ru">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>TechIndustry</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/styles.css">
-    <script src="../static/js/main.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/main.js"></script>
 </head>
-
-<body>
-
+<body onload="onPageLoad()">
+<div class="customer-block">
+    <div class="seller-title" id="sellerName"></div>
+    <form class="customer-form" style="margin-top: 100px">
+        <label class="subtitle" for="customerName" style="height: 50px">Client name:</label>
+        <input class="input" type="text" id="customerName" style="height: 50px" required>
+        <label class="subtitle" for="customerSurname" style="height: 50px">Client surname:</label>
+        <input type="text" id="customerSurname" class="input" style="height: 50px" required>
+        <button class="submit" onclick="addCustomer(event)" style="height: 50px">add customer</button>
+    </form>
+    <div class="subtitle" style="text-align: center">
+        <h3>Customers list:</h3>
+        <ul id="customerList" style="text-align: left"></ul>
+    </div>
+</div>
 </body>
-
-<script src="/js/main.js"></script>
-
 </html>

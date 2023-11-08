@@ -15,24 +15,24 @@ public class ApiCustomerController {
         this.customerService = customerservice;
     }
 
-    @PostMapping(value = "/customers/")
+    @PostMapping(value = "/")
     public ResponseEntity<Integer> addCustomer(@RequestBody CustomerEntity customer)
     {
         return ResponseEntity.ok(customerService.addCustomer(customer));
     }
 
-    @GetMapping("/customers/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<CustomerEntity> getCustomer(@PathVariable Integer id)
     {
         return ResponseEntity.ok(customerService.getCustomerByID(id));
     }
 
-    @DeleteMapping("/customers/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<?> removeCustomer(CustomerEntity customer, @PathVariable int id){
         return ResponseEntity.ok(customerService.deleteCustomer(customer));
     }
 
-    @DeleteMapping("/customers/")
+    @DeleteMapping("/")
     public ResponseEntity<?> deleteAllCustomers(){
         return ResponseEntity.ok(customerService.deleteAllCustomers());
     }
